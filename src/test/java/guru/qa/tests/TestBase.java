@@ -3,7 +3,7 @@ package guru.qa.tests;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import guru.qa.drivers.BrowserstackDriver;
-import guru.qa.drivers.LocalMobileDriver;
+import guru.qa.drivers.MobileDriver;
 import guru.qa.helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
@@ -27,12 +27,12 @@ public class TestBase {
                 Configuration.browser = BrowserstackDriver.class.getName();
                 break;
             case "mobile":
-                Configuration.browser = LocalMobileDriver.class.getName();
+                Configuration.browser = MobileDriver.class.getName();
                 break;
         }
 
-        Configuration.timeout = 10000;
-        Configuration.pageLoadTimeout = 10000;
+        Configuration.timeout = 15000;
+        Configuration.pageLoadTimeout = 15000;
         Configuration.browserSize = null;
 
     }
@@ -46,7 +46,7 @@ public class TestBase {
     @AfterEach
     void afterEach() {
         String sessionId = sessionId().toString();
-        Attach.pageSource();
+//        Attach.pageSource();
 
         closeWebDriver();
         if (!deviceHost.equals("mobile")) {

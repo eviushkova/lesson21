@@ -1,19 +1,24 @@
 package guru.qa.helpers;
 
-import guru.qa.config.AuthConfig;
+import guru.qa.config.BrowserstackConfig;
 import org.aeonbits.owner.ConfigFactory;
 
-import static java.lang.String.format;
+import static guru.qa.helpers.CustomApiListener.withCustomTemplates;
 import static io.restassured.RestAssured.given;
+import static java.lang.String.format;
 
 public class Browserstack {
-    static AuthConfig config = ConfigFactory.create(AuthConfig.class, System.getProperties());
+
+    static BrowserstackConfig config = ConfigFactory.create(BrowserstackConfig.class, System.getProperties());
 
     public static String videoUrl(String sessionId) {
+
         String url = format("https://api.browserstack.com/app-automate/sessions/%s.json", sessionId);
 
         return given()
-                .auth().basic(config.getUsername(), config.getPassword())
+                .log().all()
+                .filter(withCustomTemplates())
+                .auth().basic(config.username(), config.password())
                 .when()
                 .get(url)
                 .then()

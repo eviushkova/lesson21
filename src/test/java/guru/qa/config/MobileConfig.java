@@ -3,20 +3,24 @@ package guru.qa.config;
 import org.aeonbits.owner.Config;
 
 @Config.Sources({
-        "classpath:${env}.properties"
+        "classpath:${deviceHost}.properties"
 })
 public interface MobileConfig extends Config {
+    @Key("bs")
+    String bs();
 
     @Key("device")
-    @DefaultValue("Google Pixel 3")
-    String getDevice();
+    String device();
 
-    @Key("os_version")
-    @DefaultValue("9.0")
-    String getVersion();
+    @Key("osVersion")
+    String osVersion();
 
-    @Key("appUrl")
-    @DefaultValue("bs://c700ce60cf13ae8ed97705a55b8e022f13c5827c")
-    String getAppUrl();
+    @Key("project")
+    String projectName();
 
+    @Key("build")
+    String buildName();
+
+    @Key("name")
+    String testName();
 }

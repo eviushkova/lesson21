@@ -3,14 +3,13 @@ package guru.qa.config;
 import org.aeonbits.owner.Config;
 
 @Config.Sources({
-        "classpath:${deviceHost}.properties",
+        "classpath:mobile.properties",
 })
 public interface MobileDriverConfig extends Config {
-
-    @Key("os_version")
+    @Key("osVersion")
     String mobileVersion();
 
-    @Key("device")
+    @Key("deviceName")
     String mobileDevice();
 
     @Key("appPath")
@@ -19,15 +18,12 @@ public interface MobileDriverConfig extends Config {
     @Key("platformName")
     String mobilePlatformName();
 
-//    @Key("browsrrstackPlatformName")
-//    String browsrrstackPlatformName();
-
     @Key("appPackage")
     String mobileAppPackage();
 
     @Key("appActivity")
     String mobileAppActivity();
 
-    @Key("appUrl")
+    @Key("url")
     String mobileUrl();
 }
