@@ -19,14 +19,14 @@ public class TestBase {
     static void beforeAll() {
 
         if (deviceHost == null) {
-            deviceHost = "mobile";
+            deviceHost = "emulator";
         }
 
         switch (deviceHost) {
             case "android":
                 Configuration.browser = BrowserstackDriver.class.getName();
                 break;
-            case "mobile":
+            case "emulator":
                 Configuration.browser = MobileDriver.class.getName();
                 break;
         }
@@ -49,7 +49,7 @@ public class TestBase {
 //        Attach.pageSource();
 
         closeWebDriver();
-        if (!deviceHost.equals("mobile")) {
+        if (!deviceHost.equals("emulator")) {
             Attach.addVideo(sessionId);
         }
     }

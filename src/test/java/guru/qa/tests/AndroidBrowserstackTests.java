@@ -14,7 +14,7 @@ import static io.qameta.allure.Allure.step;
 public class AndroidBrowserstackTests extends TestBase {
 
     @Test
-    @Tag("android_local")
+    @Tag("android")
     @DisplayName("Successful onboarding")
     void onboardingTest() {
         step("Verify that first screen opened", () ->
@@ -41,7 +41,7 @@ public class AndroidBrowserstackTests extends TestBase {
     }
 
     @Test
-    @Tag("android_local")
+    @Tag("android")
     @DisplayName("Successful search")
     void successfulSearchTest() {
         step("skip screen", () ->

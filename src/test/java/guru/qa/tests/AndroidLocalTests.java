@@ -9,11 +9,12 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static io.qameta.allure.Allure.step;
 
-@Tag("mobile")
+
 public class AndroidLocalTests extends TestBase {
 
-    @DisplayName("Getting started - onboarding")
     @Test
+    @Tag("emulator")
+    @DisplayName("Getting started - onboarding")
     void checkOnboardingScreenTest() {
         step("Check that the text string 'The Free Encyclopedia …in over 300 languages' is visible on the page", () -> {
             $(AppiumBy.id("org.wikipedia.alpha:id/primaryTextView"))
