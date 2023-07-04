@@ -1,7 +1,6 @@
 plugins {
     id 'java-library'
     id 'io.qameta.allure' version '2.11.2'
-    id "io.freefair.lombok" version "6.0.0-m2"
 }
 
 repositories {
@@ -31,21 +30,11 @@ dependencies {
             'io.appium:java-client:8.3.0',
             'io.rest-assured:rest-assured:5.3.0',
             'io.qameta.allure:allure-rest-assured:2.21.0',
-            'org.projectlombok:lombok:1.18.28',
             'org.junit.jupiter:junit-jupiter:5.9.3',
             'org.slf4j:slf4j-simple:2.0.6',
             'org.aeonbits.owner:owner-java8:1.0.12',
             'io.github.bonigarcia:webdrivermanager:5.3.2'
     )
-
-    testCompileOnly(
-            'org.projectlombok:lombok:1.18.28'
-    )
-
-    testAnnotationProcessor(
-            'org.projectlombok:lombok:1.18.28'
-    )
-
 }
 
 tasks.withType(JavaCompile) {
